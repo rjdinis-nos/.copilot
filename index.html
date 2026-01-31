@@ -2,53 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Open in VS Code</title>
+  <title>GitHub Copilot Instructions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 640px;
-      margin: 4rem auto;
+      max-width: 760px;
+      margin: 3rem auto;
       padding: 0 1rem;
-      line-height: 1.5;
+      line-height: 1.6;
     }
-    .button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.25rem;
-      background: #007acc;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
+
+    h1 {
+      margin-bottom: 0.5rem;
     }
+
+    ul {
+      padding-left: 1.25rem;
+    }
+
+    li {
+      margin-bottom: 1.5rem;
+    }
+
+    .desc {
+      margin: 0.25rem 0 0.5rem;
+      color: #444;
+    }
+
+    .badge {
+      vertical-align: middle;
+    }
+
     code {
       background: #f3f3f3;
-      padding: 0.25rem 0.4rem;
+      padding: 0.2rem 0.35rem;
       border-radius: 4px;
-      word-break: break-all;
+      font-size: 0.9em;
     }
   </style>
 </head>
 
 <body>
-  <h1>Open in Visual Studio Code</h1>
+  <h1>GitHub Copilot Instructions</h1>
+  <p>Select an instruction set to install it in Visual Studio Code.</p>
+
+  <ul>
+    <li>
+      <strong>Python</strong>
+      <div class="desc">Best practices for Python projects and Copilot usage.</div>
+      <a
+        href="vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md"
+      >
+        <img
+          class="badge"
+          src="https://img.shields.io/badge/Open%20in-VS%20Code-007ACC?logo=visualstudiocode"
+          alt="Open in VS Code"
+        />
+      </a>
+    </li>
+  </ul>
 
   <p>
-    This will open <strong>Visual Studio Code</strong> and install GitHub Copilot
-    instructions from our repository.
+    Instructions are stored as Markdown files and loaded directly into VS Code.
   </p>
 
-  <a
-    class="button"
-    href="vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md"
-  >
-    Open in VS Code
-  </a>
-
-  <p style="margin-top:2rem;">
-    If nothing happens, make sure VS Code is installed, then click the button again.
+  <p>
+    If clicking the badge does nothing, make sure Visual Studio Code is installed.
   </p>
 
   <p>
@@ -58,13 +79,5 @@
       vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md
     </code>
   </p>
-
-  <script>
-    // Optional auto-launch after page load
-    setTimeout(() => {
-      window.location.href =
-        "vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md";
-    }, 500);
-  </script>
 </body>
 </html>
