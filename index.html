@@ -4,80 +4,50 @@
   <meta charset="utf-8" />
   <title>GitHub Copilot Instructions</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      max-width: 760px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      line-height: 1.6;
-    }
-
-    h1 {
-      margin-bottom: 0.5rem;
-    }
-
-    ul {
-      padding-left: 1.25rem;
-    }
-
-    li {
-      margin-bottom: 1.5rem;
-    }
-
-    .desc {
-      margin: 0.25rem 0 0.5rem;
-      color: #444;
-    }
-
-    .badge {
-      vertical-align: middle;
-    }
-
-    code {
-      background: #f3f3f3;
-      padding: 0.2rem 0.35rem;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <h1>GitHub Copilot Instructions</h1>
-  <p>Select an instruction set to install it in Visual Studio Code.</p>
-
+  <h1>GitHub Copilot Customizations</h1>
+  <p>Collection of custom agents, prompts, and instructions to supercharge your GitHub Copilot experience.</p>
+  
+  <h3>To Install:</h3>
   <ul>
-    <li>
-      <strong>Python</strong>
-      <div class="desc">Best practices for Python projects and Copilot usage.</div>
-      <a
-        href="vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md"
-      >
-        <img
-          class="badge"
-          src="https://img.shields.io/badge/Open%20in-VS%20Code-007ACC?logo=visualstudiocode"
-          alt="Open in VS Code"
-        />
-      </a>
-    </li>
+    <li>Click the <strong>VS Code</strong> install button for the instruction you want to use</li>
+    <li>If clicking the button does nothing, make sure Visual Studio Code is installed.</li>
   </ul>
 
-  <p>
-    Instructions are stored as Markdown files and loaded directly into VS Code.
-  </p>
+  <h3>To manual apply:</h3>
+  <ul>
+    <li>Download the <code>*.instructions.md</code> file and manually add it to your project's instruction collection</li>
+    <li>Copy these instructions to your <code>.github/copilot-instructions.md</code> file in your workspace</li>
+  </ul>
 
-  <p>
-    If clicking the badge does nothing, make sure Visual Studio Code is installed.
-  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>Python</strong>
+          <br />
+          <a
+            class="install-btn"
+            href="vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md"
+          >
+            VS Code Install
+          </a>
+        </td>
+        <td>
+          Best practices for Python projects and Copilot usage.
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-  <p>
-    Manual link:
-    <br />
-    <code>
-      vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md
-    </code>
-  </p>
 </body>
 </html>
