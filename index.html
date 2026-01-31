@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Open in VS Code</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      max-width: 640px;
+      margin: 4rem auto;
+      padding: 0 1rem;
+      line-height: 1.5;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    code {
+      background: #f3f3f3;
+      padding: 0.25rem 0.4rem;
+      border-radius: 4px;
+      word-break: break-all;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Open in Visual Studio Code</h1>
+
+  <p>
+    This will open <strong>Visual Studio Code</strong> and install GitHub Copilot
+    instructions from our repository.
+  </p>
+
+  <a
+    class="button"
+    href="vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md"
+  >
+    Open in VS Code
+  </a>
+
+  <p style="margin-top:2rem;">
+    If nothing happens, make sure VS Code is installed, then click the button again.
+  </p>
+
+  <p>
+    Manual link:
+    <br />
+    <code>
+      vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md
+    </code>
+  </p>
+
+  <script>
+    // Optional auto-launch after page load
+    setTimeout(() => {
+      window.location.href =
+        "vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md";
+    }, 500);
+  </script>
+</body>
+</html>
