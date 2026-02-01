@@ -11,11 +11,11 @@ if git diff --cached --name-only | grep -q "^customizations/"; then
     
     # Run build script
     echo "  → Generating customizations.yml..."
-    uv run build.py
+    uv run scripts/build.py
     
     # Run documentation update
     echo "  → Updating documentation..."
-    uv run update_docs.py
+    uv run scripts/update_docs.py
     
     # Stage the generated files
     git add customizations.yml README.md index.html

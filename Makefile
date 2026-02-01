@@ -6,7 +6,7 @@
 # Build customizations.yml from agent and instruction files
 build:
 	@echo "Building customizations.yml..."
-	@uv run build.py
+	@uv run scripts/build.py
 
 # Test documentation updates locally
 test:
@@ -14,7 +14,7 @@ test:
 	@mkdir -p test
 	@cp README.md test/README.md.orig
 	@cp index.html test/index.html.orig
-	@uv run update_docs.py
+	@uv run scripts/update_docs.py
 	@cp README.md test/README.md.new
 	@cp index.html test/index.html.new
 	@echo "✓ Test files created in test/ folder:"
