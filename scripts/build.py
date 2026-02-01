@@ -20,7 +20,7 @@ from git import Repo
 def derive_title_from_filename(filename):
     """Convert filename to title (e.g., uv_python_init.agent.md -> UV Python Init)"""
     # Remove extension
-    name = filename.replace('.agent.md', '').replace('.instructions.md', '')
+    name = filename.replace('.agent.md', '').replace('.instructions.md', '').replace('.prompt.md', '')
     # Split on underscores and capitalize each word
     words = name.split('_')
     # Handle special cases for acronyms

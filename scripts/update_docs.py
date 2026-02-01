@@ -46,6 +46,8 @@ def generate_html_table_rows(customizations):
         # Determine install URL type
         if item['type'] == 'Agent':
             url_type = 'chat-agent'
+        elif item['type'] == 'Prompt':
+            url_type = 'chat-prompt'
         else:
             url_type = 'chat-instructions'
         

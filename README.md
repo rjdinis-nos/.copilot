@@ -15,8 +15,7 @@ This repository contains reusable Copilot customizations to enhance your develop
 |------|-------|-------------|
 | Agent | [UV Python Init](customizations/agents/uv_python_init.agent.md) | Creates a new Python project structure with best practices and essential files |
 | Instruction | [Python](customizations/instructions/python.instructions.md) | Python coding conventions and guidelines |
-| Instruction | [Security Review](customizations/instructions/security_review.instructions.md) | Security review instructions for code analysis focusing on OWASP Top 10 vulnerabilities |
-| Prompt | [Security Review.prompt.md](customizations/prompts/security_review.prompt.md) | Your goal is to identify security vulnerabilities in code, focusing on the OWASP Top 10 and common security issues. |
+| Prompt | [Security Review](customizations/prompts/security_review.prompt.md) | Security review prompt for code analysis focusing on OWASP Top 10 vulnerabilities. Scans code for input validation issues, authentication flaws, hardcoded secrets, injection risks, weak cryptography, error handling problems, and vulnerable dependencies while providing line-specific vulnerability reports with risk severity levels and secure code fixes. |
 
 ## License
 
