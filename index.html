@@ -12,18 +12,6 @@
   <h1>GitHub Copilot Customizations</h1>
   <p>Collection of custom agents, prompts, and instructions to supercharge your GitHub Copilot experience.</p>
   
-  <h3>To Install:</h3>
-  <ul>
-    <li>Click the <strong>VS Code</strong> install button for the instruction you want to use</li>
-    <li>If clicking the button does nothing, make sure Visual Studio Code is installed.</li>
-  </ul>
-
-  <h3>To manual apply:</h3>
-  <ul>
-    <li>Download the <code>*.instructions.md</code> file and manually add it to your project's instruction collection</li>
-    <li>Copy these instructions to your <code>.github/copilot-instructions.md</code> file in your workspace</li>
-  </ul>
-
   <table>
     <thead>
       <tr>
@@ -83,6 +71,47 @@
       </tr>
     </tbody>
   </table>
+
+  <h2>How to Use</h2>
+
+  <h3>Custom Agents</h3>
+  <p><strong>To Install:</strong></p>
+  <ul>
+    <li>Click the <strong>VS Code Install</strong> button for the agent you want to use</li>
+    <li>Download the <code>*.agent.md</code> file and add it to your repository</li>
+  </ul>
+  <p><strong>To Activate/Use:</strong></p>
+  <ul>
+    <li>Access installed agents through the VS Code Chat interface</li>
+    <li>Assign them in Custom Chat Agents (CCA)</li>
+    <li>Follow agent-specific instructions for optimal usage</li>
+  </ul>
+
+  <h3>Reusable Prompts</h3>
+  <p><strong>To Install:</strong></p>
+  <ul>
+    <li>Click the <strong>VS Code Install</strong> button for the prompt you want to use</li>
+    <li>Download the <code>*.prompt.md</code> file and manually add it to your prompt collection</li>
+  </ul>
+  <p><strong>To Run/Execute:</strong></p>
+  <ul>
+    <li>Use <code>/prompt-name</code> in VS Code chat after installation</li>
+    <li>Run the <strong>Chat: Run Prompt</strong> command from the Command Palette</li>
+    <li>Hit the run button while you have a prompt file open in VS Code</li>
+  </ul>
+
+  <h3>Custom Instructions</h3>
+  <p><strong>To Install:</strong></p>
+  <ul>
+    <li>Click the <strong>VS Code Install</strong> button for the instruction you want to use</li>
+    <li>Download the <code>*.instructions.md</code> file and manually add it to your project's instruction collection</li>
+  </ul>
+  <p><strong>To Use/Apply:</strong></p>
+  <ul>
+    <li>Copy these instructions to your <code>.github/copilot-instructions.md</code> file in your workspace</li>
+    <li>Create task-specific <code>*.instructions.md</code> files in your workspace's <code>.github/instructions/</code> folder</li>
+    <li>Instructions automatically apply to Copilot behavior once installed in your workspace</li>
+  </ul>
 
 </body>
 </html>
