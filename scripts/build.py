@@ -45,8 +45,8 @@ def get_git_remote_url():
             # Remove .git suffix
             origin_url = origin_url.rstrip('.git')
             return origin_url
-    except Exception as e:
-        print(f"Warning: Could not detect git remote URL: {e}")
+    except Exception:
+        print("Warning: Could not detect git remote URL")
         return None
 
 def parse_frontmatter(content):
@@ -67,15 +67,21 @@ def parse_frontmatter(content):
     if fm_match:
         try:
             return yaml.safe_load(fm_match.group(1))
-        except yaml.YAMLError as e:
-            print(f"Warning: Failed to parse YAML frontmatter: {e}")
+        except yaml.YAMLError:
+            print("Warning: Failed to parse YAML frontmatter")
             return {}
     return {}
 
 def scan_directory(directory, file_extension, item_type):
     """Scan directory for files with given extension and extract metadata"""
     items = []
-    dir_path = Path(directory)
+    dir_path = Path(directory).resolve()
+    base_path = Path('.').resolve()
+    
+    # Validate directory is within workspace
+    if not str(dir_path).startswith(str(base_path)):
+        print(f"Warning: Directory {directory} is outside workspace")
+        return items
     
     if not dir_path.exists():
         print(f"Warning: Directory {directory} does not exist")
@@ -112,7 +118,7 @@ def scan_directory(directory, file_extension, item_type):
             title = derive_title_from_filename(filename)
             
             # Get relative path from project root
-            relative_path = file_path.relative_to('.')
+            relative_path = file_path.relative_to(base_path)
             
             items.append({
                 'type': item_type,
@@ -122,8 +128,8 @@ def scan_directory(directory, file_extension, item_type):
                 'metadata': frontmatter
             })
             
-        except Exception as e:
-            print(f"Warning: Failed to process {file_path}: {e}")
+        except Exception:
+            print(f"Warning: Failed to process {file_path}")
     
     return items
 

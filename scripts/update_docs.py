@@ -2,6 +2,7 @@
 # /// script
 # dependencies = [
 #   "pyyaml",
+#   "gitpython",
 # ]
 # ///
 
@@ -9,8 +10,28 @@
 Update README.md and index.html with data from customizations.yml
 """
 
+import html
 import yaml
 from pathlib import Path
+from git import Repo
+
+def get_git_repo_info():
+    """Get repository owner and name from git remote"""
+    try:
+        repo = Repo('.')
+        if repo.remotes:
+            origin_url = repo.remotes.origin.url
+            # Convert SSH to HTTPS if needed
+            if origin_url.startswith('git@github.com:'):
+                origin_url = origin_url.replace('git@github.com:', 'https://github.com/')
+            # Remove .git suffix
+            origin_url = origin_url.rstrip('.git')
+            # Extract owner/repo from URL
+            parts = origin_url.rstrip('/').split('/')[-2:]
+            return parts[0], parts[1]
+    except Exception:
+        pass
+    return 'rjdinis-nos', '.copilot'  # Fallback default
 
 def load_customizations():
     """Load customizations from YAML file"""
@@ -36,12 +57,14 @@ def generate_markdown_table(customizations):
 def generate_html_table_rows(customizations):
     """Generate HTML table rows for index.html"""
     rows = []
+    owner, repo = get_git_repo_info()
     
     for item in customizations:
         # Extract title text and file path from markdown link
         title_match = item['title']
-        title_text = title_match.split('](')[0].replace('[', '')
-        file_path = title_match.split('](')[1].replace(')', '')
+        title_text = html.escape(title_match.split('](')[0].replace('[', ''))
+        file_path = html.escape(title_match.split('](')[1].replace(')', ''))
+        description = html.escape(item['description'])
         
         # Determine install URL type
         if item['type'] == 'Agent':
@@ -51,8 +74,8 @@ def generate_html_table_rows(customizations):
         else:
             url_type = 'chat-instructions'
         
-        install_url = f"https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/{file_path}"
-        github_url = f"https://github.com/rjdinis-nos/.copilot/blob/main/{file_path}"
+        install_url = f"https://raw.githubusercontent.com/{owner}/{repo}/refs/heads/main/{file_path}"
+        github_url = f"https://github.com/{owner}/{repo}/blob/main/{file_path}"
         
         row = f'''      <tr>
         <td>{item['type']}</td>
@@ -67,7 +90,7 @@ def generate_html_table_rows(customizations):
           </a>
         </td>
         <td>
-          {item['description']}
+          {description}
         </td>
       </tr>'''
         rows.append(row)
