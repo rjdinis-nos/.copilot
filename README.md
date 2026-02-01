@@ -13,8 +13,8 @@ This repository contains reusable Copilot customizations to enhance your develop
 
 | Type | Title | Description |
 |------|-------|-------------|
-| Agent | **UV Python Init**<br/>[VS Code Install](vscode:chat-agent/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/agents/uv_python_init.agent.md) | Creates a new Python project structure with best practices and essential files. |
-| Instruction | **Python**<br/>[VS Code Install](vscode:chat-instructions/install?url=https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/instructions/python.instructions.md) | Best practices for Python projects and Copilot usage. |
+| Agent | [UV Python Init](customizations/agents/uv_python_init.agent.md) | Creates a new Python project structure with best practices and essential files |
+| Instruction | [Python](customizations/instructions/python.instructions.md) | Python coding conventions and guidelines |
 
 ## License
 

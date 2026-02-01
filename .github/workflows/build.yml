@@ -24,10 +24,13 @@ jobs:
       - name: Run build script
         run: uv run build.py
       
+      - name: Update documentation
+        run: uv run update_docs.py
+      
       - name: Check for changes
         id: check_changes
         run: |
-          git diff --quiet customizations.yml && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet customizations.yml README.md index.html && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
       
       - name: Configure git
         if: steps.check_changes.outputs.changed == 'true'
@@ -38,6 +41,6 @@ jobs:
       - name: Commit and push changes
         if: steps.check_changes.outputs.changed == 'true'
         run: |
-          git add customizations.yml
-          git commit -m "Update customizations.yml [skip ci]"
+          git add customizations.yml README.md index.html
+          git commit -m "Update customizations and documentation [skip ci]"
           git push
