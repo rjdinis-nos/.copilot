@@ -1,0 +1,8 @@
+customizations:
+- type: Agent
+  title: '[UV Python Init](customizations/agents/uv_python_init.agent.md)'
+  description: Creates a new Python project structure with best practices and essential
+    files
+- type: Instruction
+  title: '[Python](customizations/instructions/python.instructions.md)'
+  description: Python coding conventions and guidelines
