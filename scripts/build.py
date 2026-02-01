@@ -88,6 +88,20 @@ def scan_directory(directory, file_extension, item_type):
             
             frontmatter = parse_frontmatter(content)
             
+            # For prompts without frontmatter, extract description from first paragraph or heading
+            if 'description' not in frontmatter and item_type == 'Prompt':
+                # Look for first paragraph after the title
+                lines = content.split('\n')
+                description = ''
+                for i, line in enumerate(lines):
+                    if line.strip().startswith('#') and i + 2 < len(lines):
+                        # Get the paragraph after the first heading
+                        next_para = lines[i + 2].strip()
+                        if next_para and not next_para.startswith('#'):
+                            description = next_para
+                            break
+                frontmatter['description'] = description if description else 'Copilot prompt'
+            
             # Validate required fields
             if 'description' not in frontmatter:
                 print(f"Warning: Missing 'description' in {file_path}")
@@ -137,9 +151,10 @@ def main():
     # Scan directories
     agents = scan_directory('customizations/agents', '.agent.md', 'Agent')
     instructions = scan_directory('customizations/instructions', '.instructions.md', 'Instruction')
+    prompts = scan_directory('customizations/prompts', '.prompt.md', 'Prompt')
     
     # Combine into flat array
-    all_items = agents + instructions
+    all_items = agents + instructions + prompts
     
     # Keep only table fields: type, title, description
     # Add markdown link to file in title
@@ -164,6 +179,7 @@ def main():
     print(f"✓ Generated customizations.yml with {len(all_items)} items")
     print(f"  - {len(agents)} agents")
     print(f"  - {len(instructions)} instructions")
+    print(f"  - {len(prompts)} prompts")
 
 if __name__ == '__main__':
     main()

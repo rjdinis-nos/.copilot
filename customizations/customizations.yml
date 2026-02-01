@@ -4,5 +4,13 @@ customizations:
   description: Creates a new Python project structure with best practices and essential
     files
 - type: Instruction
+  title: '[Security Review](customizations/instructions/security_review.instructions.md)'
+  description: Security review instructions for code analysis focusing on OWASP Top
+    10 vulnerabilities
+- type: Instruction
   title: '[Python](customizations/instructions/python.instructions.md)'
   description: Python coding conventions and guidelines
+- type: Prompt
+  title: '[Security Review.prompt.md](customizations/prompts/security_review.prompt.md)'
+  description: Your goal is to identify security vulnerabilities in code, focusing
+    on the OWASP Top 10 and common security issues.
