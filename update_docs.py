@@ -54,7 +54,7 @@ def generate_html_table_rows(customizations):
         row = f'''      <tr>
         <td>{item['type']}</td>
         <td>
-          <strong>{title_text}</strong>
+          <strong><a href="{file_path}">{title_text}</a></strong>
           <br />
           <a
             class="install-btn"
