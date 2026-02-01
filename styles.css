@@ -52,7 +52,11 @@ th {
 }
 
 td:first-child {
-  width: 40%;
+  width: 15%;
+}
+
+td:nth-child(2) {
+  width: 30%;
 }
 
 .install-btn {
