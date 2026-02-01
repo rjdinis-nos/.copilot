@@ -158,7 +158,7 @@ def main():
     }
     
     # Write to file
-    with open('customizations.yml', 'w', encoding='utf-8') as f:
+    with open('customizations/customizations.yml', 'w', encoding='utf-8') as f:
         yaml.dump(output, f, default_flow_style=False, allow_unicode=True, sort_keys=False)
     
     print(f"✓ Generated customizations.yml with {len(all_items)} items")

@@ -18,7 +18,7 @@ if git diff --cached --name-only | grep -q "^customizations/"; then
     uv run scripts/update_docs.py
     
     # Stage the generated files
-    git add customizations.yml README.md index.html
+    git add customizations/customizations.yml README.md index.html
     
     echo "✓ Updated customizations.yml, README.md, and index.html"
 fi

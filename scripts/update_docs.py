@@ -14,7 +14,7 @@ from pathlib import Path
 
 def load_customizations():
     """Load customizations from YAML file"""
-    with open('customizations.yml', 'r', encoding='utf-8') as f:
+    with open('customizations/customizations.yml', 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f)
     return data.get('customizations', [])
 
@@ -125,7 +125,7 @@ def update_index_html(customizations):
         return False
 
 def main():
-    print("Updating documentation from customizations.yml...")
+    print("Updating documentation from customizations/customizations.yml...")
     
     # Load customizations
     customizations = load_customizations()
