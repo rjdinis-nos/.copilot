@@ -1,0 +1,4 @@
+# GitHub Copilot customization folders
+.github/instructions/
+.github/agents/
+.github/prompts/
