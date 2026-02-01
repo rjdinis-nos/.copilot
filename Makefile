@@ -1,4 +1,4 @@
-.PHONY: build preview help test review
+.PHONY: build preview help test review test-hook
 
 # Default target
 .DEFAULT_GOAL := help
@@ -39,6 +39,16 @@ review:
 	@echo "=== index.html changes ==="
 	@diff -u test/index.html.orig test/index.html.new || true
 
+# Test pre-commit hook
+test-hook:
+	@echo "Testing pre-commit hook..."
+	@if [ ! -f .git/hooks/pre-commit ]; then \
+		echo "Error: Pre-commit hook not installed"; \
+		exit 1; \
+	fi
+	@.git/hooks/pre-commit
+	@echo "✓ Pre-commit hook executed successfully"
+
 # Preview site locally (requires Python)
 preview:
 	@echo "Starting local server at http://localhost:8000"
@@ -51,5 +61,6 @@ help:
 	@echo "  make build          - Generate customizations.yml from source files"
 	@echo "  make test           - Test documentation updates and save to test/ folder"
 	@echo "  make review         - Review changes from test (show diffs)"
+	@echo "  make test-hook      - Test pre-commit hook execution"
 	@echo "  make preview        - Start local web server to preview site"
 	@echo "  make help           - Show this help message"

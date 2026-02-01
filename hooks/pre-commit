@@ -1,0 +1,26 @@
+#!/bin/bash
+# Pre-commit hook to update customizations.yml and documentation
+
+set -e
+
+echo "Running pre-commit hook..."
+
+# Check if there are changes in customizations/ folder
+if git diff --cached --name-only | grep -q "^customizations/"; then
+    echo "Detected changes in customizations/"
+    
+    # Run build script
+    echo "  → Generating customizations.yml..."
+    uv run build.py
+    
+    # Run documentation update
+    echo "  → Updating documentation..."
+    uv run update_docs.py
+    
+    # Stage the generated files
+    git add customizations.yml README.md index.html
+    
+    echo "✓ Updated customizations.yml, README.md, and index.html"
+fi
+
+exit 0
