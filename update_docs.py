@@ -50,11 +50,12 @@ def generate_html_table_rows(customizations):
             url_type = 'chat-instructions'
         
         install_url = f"https://raw.githubusercontent.com/rjdinis-nos/.copilot/refs/heads/main/{file_path}"
+        github_url = f"https://github.com/rjdinis-nos/.copilot/blob/main/{file_path}"
         
         row = f'''      <tr>
         <td>{item['type']}</td>
         <td>
-          <strong><a href="{file_path}">{title_text}</a></strong>
+          <strong><a href="{github_url}">{title_text}</a></strong>
           <br />
           <a
             class="install-btn"
