@@ -77,8 +77,11 @@ def update_readme(customizations):
     readme_path = Path('README.md')
     content = readme_path.read_text(encoding='utf-8')
     
+    # Sort customizations by type, then by title
+    sorted_customizations = sorted(customizations, key=lambda x: (x['type'], x['title']))
+    
     # Generate new table
-    new_table = generate_markdown_table(customizations)
+    new_table = generate_markdown_table(sorted_customizations)
     
     # Replace table between ## Available Customizations and ## License
     import re
@@ -100,8 +103,11 @@ def update_index_html(customizations):
     html_path = Path('index.html')
     content = html_path.read_text(encoding='utf-8')
     
+    # Sort customizations by type, then by title
+    sorted_customizations = sorted(customizations, key=lambda x: (x['type'], x['title']))
+    
     # Generate new table rows
-    new_rows = generate_html_table_rows(customizations)
+    new_rows = generate_html_table_rows(sorted_customizations)
     
     # Replace tbody content
     import re
