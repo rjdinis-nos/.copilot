@@ -69,6 +69,9 @@ td:nth-child(2) {
   font-weight: 600;
   border-radius: 3px;
   margin-top: 0.5rem;
+  width: 120px;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .install-btn:hover {
